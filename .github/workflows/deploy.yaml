@@ -6,7 +6,19 @@ jobs:
     first_job:
         runs-on: ubuntu-latest
 
+        services:
+          regis:
+            image: redis
+            ports:
+              - 6379:6379
+
         steps:
+            - name: Install redis cli
+              run: apt-get update -y && apt-get install regis-tools -y
+
+            - name: Test redis
+              run: redis-cli -h localhost -p 6379 ping 
+              
             - name: Print variable
               run: echo "${{ secrets.TOKEN_SECRECT }}"
             
