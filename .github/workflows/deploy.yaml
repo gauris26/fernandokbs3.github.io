@@ -38,6 +38,11 @@ jobs:
             
             - name: Construir pagina
               run: npm run build
+            
+            - name: Subir artefacto
+              uses: actions/upload-pages-artifact@v3
+              with:
+                path: public/ 
 
     deploy:
       if: ${{ always() }}
