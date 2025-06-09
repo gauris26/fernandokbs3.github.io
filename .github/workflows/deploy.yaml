@@ -35,6 +35,9 @@ jobs:
             
             - name: Correr pruebas
               run: npm run test
+            
+            - name: Construir pagina
+              run: npm run build
 
     deploy:
       if: ${{ always() }}
