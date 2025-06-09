@@ -14,11 +14,11 @@ jobs:
 
         steps:
             - name: Install redis cli
-              run: apt-get update -y && apt-get install regis-tools -y
+              run: sudo apt-get update -y && sudo apt-get install regis-tools -y
 
             - name: Test redis
               run: redis-cli -h localhost -p 6379 ping 
-              
+
             - name: Print variable
               run: echo "${{ secrets.TOKEN_SECRECT }}"
             
